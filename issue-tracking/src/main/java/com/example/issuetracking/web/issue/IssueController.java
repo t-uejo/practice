@@ -17,6 +17,6 @@ public class IssueController {
                 new IssueEntity(3, "概要３", "説明３")
         );
         model.addAttribute("issueList", issueList);
-        return "list.html";
+        return "issues/list.html";
     }
 }
