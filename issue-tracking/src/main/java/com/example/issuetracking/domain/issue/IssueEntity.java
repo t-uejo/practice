@@ -1,25 +1,15 @@
 package com.example.issuetracking.domain.issue;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.Getter;
+
+@AllArgsConstructor
 public class IssueEntity {
+    @Getter
     private long id;
+    @Getter
     private String summary;
+    @Getter
     private String description;
-
-    public IssueEntity(long id, String summary, String description) {
-        this.id = id;
-        this.summary = summary;
-        this.description = description;
-    }
-
-    public long getId() {
-        return id;
-    }
-
-    public String getSummary() {
-        return summary;
-    }
-
-    public String getDescription() {
-        return description;
-    }
 }
