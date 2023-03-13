@@ -7,6 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 
 import java.util.List;
 
@@ -25,5 +27,17 @@ public class IssueController {
         var issueList = issueService.findAll();
         model.addAttribute("issueList", issueList);
         return "issues/list.html";
+    }
+
+    @GetMapping("/issues/creationForm")
+    public String showCreationForm(@ModelAttribute IssueForm issueForm){
+        return "issues/creationForm.html";
+    }
+
+    @PostMapping("/issues")
+    public String create(IssueForm issueForm, Model model){
+        issueService.create(issueForm.getSummary(), issueForm.getDescription());
+        //TODO:リロードボタン対策
+        return showList(model);
     }
 }

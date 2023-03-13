@@ -6,6 +6,10 @@
 </head>
 <body>
 <h1>課題一覧</h1>
+<div>
+    <a href="#" th:href="@{/}">トップページ</a>
+    <a href="#" th:href="@{/issues/creationForm}">課題作成</a>
+</div>
 <table>
     <thead>
     <tr>
@@ -18,7 +22,7 @@
     <tr th:each="issue: ${issueList}">
         <th th:text="${issue.id}">(id)</th>
         <td th:text="${issue.summary}">(summary)</td>
-        <td>(description)</td>
+        <td th:text="${issue.description}">(description)</td>
     </tr>
     </tbody>
 </table>

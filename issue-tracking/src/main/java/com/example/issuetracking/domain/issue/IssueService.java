@@ -16,11 +16,10 @@ public class IssueService {
 
     public List<IssueEntity> findAll() {
         return issueRepository.findAll();
+    }
 
-//        return List.of(
-//                new IssueEntity(1, "概要１", "説明１"),
-//                new IssueEntity(2, "概要２", "説明２"),
-//                new IssueEntity(3, "概要３", "説明３")
-//        );
+
+    public void create(String summary, String description) {
+        issueRepository.insert(summary, description);
     }
 }
